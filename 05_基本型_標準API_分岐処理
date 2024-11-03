@@ -27,15 +27,34 @@ public class Main {
     // 調べた結果、ZonedDateTime.now().getHour();にすると、int型でprintlnできることがわかりました
     // 結果、int型で出力して、if文で数字の比較を行い、条件分岐に一致するかどうかで文章を出力する形式にしました
     // https://www.javadrive.jp/start/calendar/index2.html
-    ZonedDateTime time = ZonedDateTime.now();
-      int hour = ZonedDateTime.now().getHour();
-      int minute = ZonedDateTime.now().getMinute();
 
-      if (hour > 12 && minute > 30 ) {
-        System.out.println("12時30分より前の時間です");
-      } else {
-        System.out.println("12時30分より後の時間です");
-      }
+    // 現在時間が指定時間よりも大きいことで前の時間と判定されてしまう
+    // 先に「後の時間」と出力することで、辻褄が合う
+    // 今回は先に「前の時間」と出力して見やすくするために、演算子を小なりイコールにした
+    // <=にして、hourの方が大きい場合は時間が遅い判定になるため、1回目のif文は該当せず、2回目の「後の時間」に該当することになる
+
+    ZonedDateTime time = ZonedDateTime.now();
+    int hour = ZonedDateTime.now().getHour();
+    int minute = ZonedDateTime.now().getMinute();
+
+    if (hour <= 12 && minute <= 30) {
+      System.out.println("12時30分より前の時間です");
+    } else {
+      System.out.println("12時30分より後の時間です");
+    }
+
+    if (hour <= 23 && minute <= 40) {
+      System.out.println("23時40分より前の時間です");
+    } else {
+      System.out.println("23時40分より後の時間です");
+    }
+
+    if (hour <= 8 && minute <= 0) {
+      System.out.println("8時00分より前の時間です");
+    } else {
+      System.out.println("8時00分より後の時間です");
+    }
+
 
 
     // これは試行錯誤したメモです
