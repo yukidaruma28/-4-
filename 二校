@@ -1,1 +1,18 @@
+package org.example;
 
+// 修正①　mainからMainに変更しました
+public class Main {
+
+  public static void main(String[] args) {
+    // 文字列結合と数値計算の結果を結合して
+    // 自分の名前 + 自分の年齢 + "歳です。"が出力されるようにする。
+
+    // 修正② ローワーキャメルケースにして、先頭は小文字、2つ目の単語は大文字にしました
+    String fullName = "ゆきだるま";
+    String wordHa = "は";
+    String endWord = "歳です。";
+    int age = 10 + 10 + 8;
+    System.out.println(fullName + wordHa + age + endWord);
+
+  }
+}
